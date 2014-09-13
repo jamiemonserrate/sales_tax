@@ -10,8 +10,14 @@ describe Item do
   end
 
   context '#price' do
-    it 'should return price without sales tax if exempt' do
+    it 'should return price without sales tax if exempt book' do
       item = Item.new('book that is exempt of sales tax', 10)
+
+      expect(item.price).to eq(10)
+    end
+
+    it 'should return price without sales tax if exempt food' do
+      item = Item.new('chocolate bar that is exempt of sales tax', 10)
 
       expect(item.price).to eq(10)
     end

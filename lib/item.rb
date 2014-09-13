@@ -13,6 +13,6 @@ class Item
 
   private
   def is_exempt?
-    name.include?('book')
+    name.include?('book') || name.include?('chocolate bar')
   end
 end
