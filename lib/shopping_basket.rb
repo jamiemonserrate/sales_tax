@@ -8,6 +8,10 @@ class ShoppingBasket
   end
 
   def print_receipt
-    "1 #{@items.first.name} : #{@items.first.price}"
+    receipt = []
+    @items.each do |item|
+      receipt << "1 #{item.name} : #{item.price}"
+    end
+    receipt.join('\\n ')
   end
 end
