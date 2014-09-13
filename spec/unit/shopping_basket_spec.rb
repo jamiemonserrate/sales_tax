@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ShoppingBasket do
   context '#add' do
     it 'should respond to add' do
-      expect { ShoppingBasket.new.add(Item.new('asd', 123)) }.to_not raise_error
+      expect { ShoppingBasket.new.add(FactoryGirl.build(:item)) }.to_not raise_error
     end
   end
 
