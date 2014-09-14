@@ -7,7 +7,7 @@ class Product
   end
 
   def price_after_tax
-    round price_before_tax + sales_tax
+    price_before_tax + sales_tax
   end
 
   def sales_tax
@@ -26,9 +26,5 @@ class Product
 
   def import_duty
     ImportDuty.new(self).amount
-  end
-
-  def round(amount)
-    amount.round(2)
   end
 end
