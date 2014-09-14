@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :product do
     ignore do
-      name 'test item name'
+      name 'test product name'
       price_before_tax 666.6
       imported false
     end

@@ -1,10 +1,10 @@
 class LineItem
-  def initialize(quantity, item)
+  def initialize(quantity, product)
     @quantity = quantity
-    @item = item
+    @product = product
   end
 
   def to_s
-    "#{@quantity} #{@item}"
+    "#{@quantity} #{@product}"
   end
 end

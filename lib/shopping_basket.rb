@@ -3,8 +3,8 @@ class ShoppingBasket
     @line_items = []
   end
 
-  def add(quantity, item)
-    @line_items << LineItem.new(quantity, item)
+  def add(quantity, product)
+    @line_items << LineItem.new(quantity, product)
   end
 
   def print_receipt

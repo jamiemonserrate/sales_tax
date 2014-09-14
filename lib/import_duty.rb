@@ -1,17 +1,17 @@
 class ImportDuty
   IMPORT_DUTY = 0.05
 
-  def initialize(item)
-    @item = item
+  def initialize(product)
+    @product = product
   end
 
   def amount
     return 0 if is_exempt?
-    @item.price_before_tax * IMPORT_DUTY
+    @product.price_before_tax * IMPORT_DUTY
   end
 
   private
   def is_exempt?
-    !@item.imported
+    !@product.imported
   end
 end
