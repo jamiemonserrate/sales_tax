@@ -14,7 +14,7 @@ describe ShoppingBasket do
       shopping_basket.add(1, Product.new('book 1', 123.0))
       shopping_basket.add(1, Product.new('imported book 2', 456.0))
 
-      expect(shopping_basket.receipt).to eq('1 book 1 : 123.00\\n 1 imported book 2 : 478.80\\n Sales Taxes : 22.80\\n Total : 601.80')
+      expect(shopping_basket.receipt).to eq('1 book 1: 123.00\\n 1 imported book 2: 478.80\\n Sales Taxes: 22.80\\n Total: 601.80')
     end
   end
 end

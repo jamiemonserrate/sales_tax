@@ -15,7 +15,7 @@ class Product
   end
 
   def to_s
-    "#{name} : #{'%.02f' % price_after_tax}"
+    "#{name}: #{'%.02f' % price_after_tax}"
   end
 
   private
