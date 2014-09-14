@@ -6,12 +6,12 @@ class SalesTax
   end
 
   def amount
-    return 0 if is_exempt? @item
+    return 0 if is_exempt?
     @item.price_before_tax * SALES_TAX_RATE
   end
 
   private
-  def is_exempt?(item)
-    item.name.include?('book') || item.name.include?('chocolate')
+  def is_exempt?
+    @item.name.include?('book') || @item.name.include?('chocolate')
   end
 end
