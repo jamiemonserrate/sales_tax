@@ -7,7 +7,7 @@ class ShoppingBasket
     @line_items << LineItem.new(quantity, product)
   end
 
-  def print_receipt
+  def receipt
     all_line_items_in_cart + total_of_sales_tax + grand_total
   end
 
