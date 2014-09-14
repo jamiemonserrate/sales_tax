@@ -1,3 +1,5 @@
+require 'yaml'
+
 class SalesTax
   SALES_TAX_RATE = 0.1
 
@@ -12,7 +14,15 @@ class SalesTax
 
   private
   def is_exempt?
-    @product.name.include?('book') || @product.name.include?('chocolate') || @product.name.include?('pill')
+    exempt_products.any? {|exempt_product| @product.name.include?(exempt_product)}
+  end
+
+  def exempt_products
+    YAML::load(File.open(sales_tax_exemptions_config_file).read)
+  end
+
+  def sales_tax_exemptions_config_file
+    File.dirname(__FILE__) + '/config/sales_tax_exemptions.yml'
   end
 
   def round(amount)
