@@ -16,7 +16,7 @@ describe ImportDuty do
 
     context 'rounding' do
       it 'should round up to the nearest 0.05' do
-        expect(ImportDuty.new(FactoryGirl.build(:product, name: 'imported product', price_before_tax: 10.44)).amount).to eq(0.5)
+        expect(ImportDuty.new(FactoryGirl.build(:product, name: 'imported product', price_before_tax: 10.44)).amount).to eq(0.55)
       end
     end
   end
