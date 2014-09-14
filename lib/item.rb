@@ -1,18 +1,22 @@
 class Item
-  attr_reader :name
+  attr_reader :name, :price_before_tax
 
-  def initialize(name, price)
+  def initialize(name, price_before_tax)
     @name = name
-    @price = price
+    @price_before_tax = price_before_tax
   end
 
-  def price
-    return @price if is_exempt?
-    (@price + (@price * 0.1)).round(2)
+  def price_after_tax
+    round price_before_tax + sales_tax
   end
 
   private
-  def is_exempt?
-    name.include?('book') || name.include?('chocolate bar')
+
+  def sales_tax
+    SalesTax.new(self).amount
+  end
+
+  def round(amount)
+    amount.round(2)
   end
 end

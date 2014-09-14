@@ -1,37 +1,26 @@
 require 'spec_helper'
 
 describe Item do
-  context '#name' do
+  context '#attributes' do
     it 'should respond to name' do
       item = Item.new('item_name', 666)
 
       expect(item.name).to eq('item_name')
+      expect(item.price_before_tax).to eq(666)
     end
   end
 
   context '#price' do
-    it 'should return price without sales tax if exempt book' do
-      item = Item.new('book that is exempt of sales tax', 10)
-
-      expect(item.price).to eq(10)
-    end
-
-    it 'should return price without sales tax if exempt food' do
-      item = Item.new('chocolate bar that is exempt of sales tax', 10)
-
-      expect(item.price).to eq(10)
-    end
-
-    it 'should return price with sales tax if not exempt' do
+    it 'should return price with sales tax' do
       item = Item.new('non exempt item', 10)
 
-      expect(item.price).to eq(11)
+      expect(item.price_after_tax).to eq(11)
     end
 
     it 'should round the price' do
       item = Item.new('non exempt item', 10.4)
 
-      expect(item.price).to eq(11.44)
+      expect(item.price_after_tax).to eq(11.44)
     end
   end
 end
