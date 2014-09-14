@@ -17,13 +17,13 @@ describe SalesTax do
 
     context 'for non exempt products' do
       it 'should return the sales tax amount' do
-        expect(SalesTax.new(FactoryGirl.build(:product, name: 'taxable product', price_before_tax: 10)).amount).to eq(1)
+        expect(SalesTax.new(FactoryGirl.build(:non_exempt_product, price_before_tax: 10)).amount).to eq(1)
       end
     end
 
     context 'rounding' do
       it 'should round up to the nearest 0.05' do
-        expect(SalesTax.new(FactoryGirl.build(:product, name: 'taxable product', price_before_tax: 10.44)).amount).to eq(1.05)
+        expect(SalesTax.new(FactoryGirl.build(:non_exempt_product, price_before_tax: 10.44)).amount).to eq(1.05)
       end
     end
   end
