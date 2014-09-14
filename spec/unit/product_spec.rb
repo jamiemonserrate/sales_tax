@@ -43,4 +43,12 @@ describe Product do
       expect(product.to_s).to eq('non exempt product : 11.0')
     end
   end
+
+  context '#taxes' do
+    it 'should return the total of the taxes' do
+      product = Product.new('imported wine', 10)
+
+      expect(product.taxes).to eq(1.5)
+    end
+  end
 end

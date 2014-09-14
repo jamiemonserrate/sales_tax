@@ -8,6 +8,16 @@ class ShoppingBasket
   end
 
   def print_receipt
+    all_line_items_in_cart + total_of_sales_tax
+  end
+
+  private
+
+  def all_line_items_in_cart
     @line_items.collect(&:to_s).join('\\n ')
+  end
+
+  def total_of_sales_tax
+    "\\n Sales Taxes : #{@line_items.inject(0) { |sum_of_taxes, line_item| line_item.taxes + sum_of_taxes }.to_f}"
   end
 end

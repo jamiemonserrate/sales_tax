@@ -4,6 +4,10 @@ class LineItem
     @product = product
   end
 
+  def taxes
+    @product.taxes * @quantity
+  end
+
   def to_s
     "#{@quantity} #{@product}"
   end

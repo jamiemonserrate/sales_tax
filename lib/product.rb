@@ -10,6 +10,10 @@ class Product
     price_before_tax + sales_tax + import_duty
   end
 
+  def taxes
+    sales_tax + import_duty
+  end
+
   def to_s
     "#{name} : #{price_after_tax.to_f}"
   end
