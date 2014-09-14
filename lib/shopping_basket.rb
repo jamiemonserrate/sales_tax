@@ -14,14 +14,14 @@ class ShoppingBasket
   private
 
   def all_line_items_in_cart
-    @line_items.collect(&:to_s).join('\\n ')
+    @line_items.collect(&:to_s).join("\n")
   end
 
   def total_of_sales_tax
-    "\\n Sales Taxes: #{'%.02f' % @line_items.collect(&:taxes).reduce(:+)}"
+    "\nSales Taxes: #{'%.02f' % @line_items.collect(&:taxes).reduce(:+)}"
   end
 
   def grand_total
-    "\\n Total: #{'%.02f' % @line_items.collect(&:price_after_tax).reduce(:+)}"
+    "\nTotal: #{'%.02f' % @line_items.collect(&:price_after_tax).reduce(:+)}"
   end
 end
