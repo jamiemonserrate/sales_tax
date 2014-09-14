@@ -15,7 +15,8 @@ describe 'SalesTax' do
     shopping_basket = ShoppingBasket.new
 
     shopping_basket.add(1, Product.new('box of chocolates', 10.0, true))
+    shopping_basket.add(1, Product.new('bottle of perfume', 47.5, true))
 
-    expect(shopping_basket.print_receipt).to eq('1 imported box of chocolates : 10.5')
+    expect(shopping_basket.print_receipt).to eq('1 imported box of chocolates : 10.5\\n 1 imported bottle of perfume : 54.65')
   end
 end

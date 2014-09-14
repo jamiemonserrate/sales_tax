@@ -8,11 +8,11 @@ class Product
   end
 
   def price_after_tax
-    round price_before_tax + sales_tax + import_duty
+    price_before_tax + sales_tax + import_duty
   end
 
   def to_s
-    "#{imported ? 'imported ' : ''}#{name} : #{price_after_tax}"
+    "#{imported ? 'imported ' : ''}#{name} : #{price_after_tax.to_f}"
   end
 
   private
@@ -23,9 +23,5 @@ class Product
 
   def import_duty
     ImportDuty.new(self).amount
-  end
-
-  def round(amount)
-    amount.round(2)
   end
 end

@@ -25,9 +25,9 @@ describe Product do
     end
 
     it 'should round the price' do
-      product = Product.new('non exempt product', 10.4, false)
+      product = Product.new('non exempt product', 10.40, false)
 
-      expect(product.price_after_tax).to eq(11.44)
+      expect(product.price_after_tax).to eq(11.45)
     end
   end
 
