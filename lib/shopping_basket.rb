@@ -1,27 +1,27 @@
 class ShoppingBasket
   def initialize
-    @line_items = []
+    @line_items = LineItems.new
   end
 
   def add(quantity, product)
-    @line_items << LineItem.new(quantity, product)
+    @line_items.add(LineItem.new(quantity, product))
   end
 
   def receipt
-    all_line_items_in_cart + total_of_sales_tax + grand_total
+    lines + sales_tax + total
   end
 
   private
 
-  def all_line_items_in_cart
-    @line_items.collect(&:to_s).join("\n")
+  def lines
+    @line_items.lines
   end
 
-  def total_of_sales_tax
-    "\nSales Taxes: #{'%.02f' % @line_items.collect(&:taxes).reduce(:+)}"
+  def sales_tax
+    "\nSales Taxes: #{'%.02f' % @line_items.sales_tax}"
   end
 
-  def grand_total
-    "\nTotal: #{'%.02f' % @line_items.collect(&:price_after_tax).reduce(:+)}"
+  def total
+    "\nTotal: #{'%.02f' % @line_items.total}"
   end
 end
