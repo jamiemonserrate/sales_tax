@@ -34,13 +34,13 @@ describe Product do
     it 'should be able to represent an imported product' do
       product = Product.new('imported non exempt product', 10)
 
-      expect(product.to_s).to eq('imported non exempt product : 11.5')
+      expect(product.to_s).to eq('imported non exempt product : 11.50')
     end
 
     it 'should be able to represent a non-imported product' do
       product = Product.new('non exempt product', 10)
 
-      expect(product.to_s).to eq('non exempt product : 11.0')
+      expect(product.to_s).to eq('non exempt product : 11.00')
     end
   end
 
