@@ -22,10 +22,6 @@ describe SalesTax do
       it 'should round up to the nearest 0.05' do
         expect(SalesTax.new(FactoryGirl.build(:product, name: 'taxable product', price_before_tax: 10.44)).amount).to eq(1.05)
       end
-
-      it 'should round down to the nearest 0.05' do
-        expect(SalesTax.new(FactoryGirl.build(:product, name: 'taxable product', price_before_tax: 10.11)).amount).to eq(1.0)
-      end
     end
   end
 end

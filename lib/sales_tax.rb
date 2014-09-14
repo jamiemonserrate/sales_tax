@@ -1,5 +1,3 @@
-require 'bigdecimal'
-
 class SalesTax
   SALES_TAX_RATE = 0.1
 
@@ -18,11 +16,6 @@ class SalesTax
   end
 
   def round(amount)
-    rounding_coefficient = BigDecimal.new(1 / rounding_to_nearest_factor)
-    (rounding_coefficient * amount).round / rounding_coefficient
-  end
-
-  def rounding_to_nearest_factor
-    BigDecimal.new('0.05', 1)
+    amount.round_to_nearest(0.05)
   end
 end
