@@ -12,4 +12,10 @@ describe LineItem do
       expect(LineItem.new(2, Product.new('imported wine', 10)).taxes).to eq(3.0)
     end
   end
+
+  context '#price_after_tax' do
+    it 'should calculate the total price after tax for the given quantity' do
+      expect(LineItem.new(2, Product.new('imported wine', 10)).price_after_tax).to eq(23.0)
+    end
+  end
 end
