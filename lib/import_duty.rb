@@ -7,7 +7,7 @@ class ImportDuty
 
   def amount
     return 0 if is_exempt?
-    round (@product.price_before_tax * IMPORT_DUTY)
+    round @product.price_before_tax * IMPORT_DUTY
   end
 
   private

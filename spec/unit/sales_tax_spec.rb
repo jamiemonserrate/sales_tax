@@ -12,7 +12,7 @@ describe SalesTax do
       end
     end
 
-    context 'for non exempt items' do
+    context 'for non exempt products' do
       it 'should return the sales tax amount' do
         expect(SalesTax.new(FactoryGirl.build(:product, name: 'taxable product', price_before_tax: 10)).amount).to eq(1)
       end
