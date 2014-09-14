@@ -1,17 +1,13 @@
 class ShoppingBasket
   def initialize
-    @items = []
+    @line_items = []
   end
 
-  def add(item)
-    @items << item
+  def add(quantity, item)
+    @line_items << LineItem.new(quantity, item)
   end
 
   def print_receipt
-    receipt = []
-    @items.each do |item|
-      receipt << "1 #{item.name} : #{item.price_after_tax}"
-    end
-    receipt.join('\\n ')
+    @line_items.collect(&:to_s).join('\\n ')
   end
 end
