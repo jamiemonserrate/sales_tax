@@ -50,5 +50,11 @@ describe Product do
 
       expect(product.taxes).to eq(1.5)
     end
+
+    it 'should round the taxes' do
+      product = Product.new('non exempt product', 10.40)
+
+      expect(product.taxes).to eq(1.05)
+    end
   end
 end
