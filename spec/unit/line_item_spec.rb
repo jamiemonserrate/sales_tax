@@ -9,7 +9,7 @@ describe LineItem do
 
   context '#taxes' do
     it 'should calculate the total of taxes for the given quantity' do
-      expect(LineItem.new(2, FactoryGirl.build(:imported_product, price_before_tax: 10.00)).taxes).to eq(3.00)
+      expect(LineItem.new(2, FactoryGirl.build(:imported_product, price_before_tax: 10.00)).sales_tax).to eq(3.00)
     end
   end
 

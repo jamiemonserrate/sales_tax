@@ -4,8 +4,8 @@ class LineItem
     @product = product
   end
 
-  def taxes
-    @product.taxes * @quantity
+  def sales_tax
+    @product.sales_tax * @quantity
   end
 
   def price_after_tax

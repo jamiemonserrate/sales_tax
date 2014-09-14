@@ -44,17 +44,17 @@ describe Product do
     end
   end
 
-  context '#taxes' do
+  context '#sales_tax' do
     it 'should return the total of the taxes' do
       product = Product.new('imported wine', 10)
 
-      expect(product.taxes).to eq(1.5)
+      expect(product.sales_tax).to eq(1.5)
     end
 
     it 'should round the taxes' do
       product = Product.new('non exempt product', 10.40)
 
-      expect(product.taxes).to eq(1.05)
+      expect(product.sales_tax).to eq(1.05)
     end
   end
 end

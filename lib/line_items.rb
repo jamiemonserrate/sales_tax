@@ -12,7 +12,7 @@ class LineItems
   end
 
   def sales_tax
-    @line_items.collect(&:taxes).reduce(:+)
+    @line_items.collect(&:sales_tax).reduce(:+)
   end
 
   def total
