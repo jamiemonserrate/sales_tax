@@ -12,7 +12,7 @@ class SalesTax
 
   private
   def is_exempt?
-    @product.name.include?('book') || @product.name.include?('chocolate')
+    @product.name.include?('book') || @product.name.include?('chocolate') || @product.name.include?('pill')
   end
 
   def round(amount)

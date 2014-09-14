@@ -12,7 +12,7 @@ class ImportDuty
 
   private
   def is_exempt?
-    !@product.imported
+    !@product.name.include?('imported')
   end
 
   def round(amount)

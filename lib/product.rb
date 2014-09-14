@@ -1,10 +1,9 @@
 class Product
-  attr_reader :name, :price_before_tax, :imported
+  attr_reader :name, :price_before_tax
 
-  def initialize(name, price_before_tax, imported)
+  def initialize(name, price_before_tax)
     @name = name
     @price_before_tax = price_before_tax
-    @imported = imported
   end
 
   def price_after_tax
@@ -12,7 +11,7 @@ class Product
   end
 
   def to_s
-    "#{imported ? 'imported ' : ''}#{name} : #{price_after_tax.to_f}"
+    "#{name} : #{price_after_tax.to_f}"
   end
 
   private

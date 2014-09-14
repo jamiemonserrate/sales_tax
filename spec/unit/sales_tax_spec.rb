@@ -9,6 +9,9 @@ describe SalesTax do
 
         expect(SalesTax.new(FactoryGirl.build(:product, name: 'chocolate')).amount).to eq(0)
         expect(SalesTax.new(FactoryGirl.build(:product, name: 'chocolate bar')).amount).to eq(0)
+
+        expect(SalesTax.new(FactoryGirl.build(:product, name: 'pill')).amount).to eq(0)
+        expect(SalesTax.new(FactoryGirl.build(:product, name: 'headache pills')).amount).to eq(0)
       end
     end
 
