@@ -5,6 +5,6 @@ class LineItem
   end
 
   def to_s
-    "#{@quantity} #{@item.name} : #{@item.price_after_tax}"
+    "#{@quantity} #{@item}"
   end
 end
