@@ -18,10 +18,10 @@ class ShoppingBasket
   end
 
   def total_of_sales_tax
-    "\\n Sales Taxes : #{@line_items.inject(0) { |sum_of_taxes, line_item| line_item.taxes + sum_of_taxes }.to_f}"
+    "\\n Sales Taxes : #{@line_items.collect(&:taxes).reduce(:+).to_f}"
   end
 
   def grand_total
-    "\\n Total : #{@line_items.inject(0) { |grand_total, line_item| line_item.price_after_tax + grand_total }.to_f}"
+    "\\n Total : #{@line_items.collect(&:price_after_tax).reduce(:+).to_f}"
   end
 end
