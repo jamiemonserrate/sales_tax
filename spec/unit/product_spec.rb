@@ -10,7 +10,7 @@ describe Product do
     end
   end
 
-  context '#price' do
+  context '#price_after_tax' do
     it 'should return price with sales tax' do
       product = Product.new('non exempt product', 10)
 
@@ -21,12 +21,6 @@ describe Product do
       product = Product.new('imported book', 10)
 
       expect(product.price_after_tax).to eq(10.5)
-    end
-
-    it 'should round the price' do
-      product = Product.new('non exempt imported product', 10.10)
-
-      expect(product.price_after_tax).to eq(11.7)
     end
   end
 
